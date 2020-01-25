@@ -1,18 +1,23 @@
 from objects import *
 
 
-def resize_circle(screen, screen_size, float_circle, float_font, font_text, font_color, ratio):
+def resize_rect(screen, screen_size, float_rect, float_font, font_text, font_color, ratio):
     # clear screen
     screen.fill((0, 0, 0))
 
-    # set new float circle radius
-    new_circle_radius = ratio * float_circle.get_float_radius()
+    # set new float rect size
+    new_rect_size = (ratio * float_rect.get_float_size()[0], ratio * float_rect.get_float_size()[1])
+
+    # set new top left point
+    new_top_left_point = (screen_size[0] / 2 - new_rect_size[0] / 2, 100)
 
     # update float rect
-    float_circle.set_float_radius(new_circle_radius)
+    float_rect.set_float_size(new_rect_size)
+    float_rect.set_float_top_left_point(new_top_left_point)
+    float_rect.update()
 
     # draw float rect
-    float_circle.draw()
+    float_rect.draw()
 
     # set new float font size
     new_font_size = ratio * float_font.get_float_size()
@@ -28,7 +33,8 @@ def resize_circle(screen, screen_size, float_circle, float_font, font_text, font
     font_surface_rect = font_surface.get_rect()
 
     # position surface rect
-    font_surface_rect.center = float_circle.get_float_center()
+    font_surface_rect.center = (int(new_top_left_point[0] + new_rect_size[0] / 2),
+                                int(new_top_left_point[1] + new_rect_size[1] / 2))
 
     # draw font surface
     screen.blit(font_surface, font_surface_rect)
@@ -36,7 +42,7 @@ def resize_circle(screen, screen_size, float_circle, float_font, font_text, font
     pygame.display.update()
 
 
-def circle_example():
+def rect_example():
 
     LEFT_BUTTON = 1
     RIGHT_BUTTON = 3
@@ -48,17 +54,17 @@ def circle_example():
 
     # ========== create float rect ==========
 
-    # create float circle radius
-    radius = 300
+    # create float rect size
+    rect_size = (600, 200)
 
     # create top left point
-    center = (screen_size[0] / 2, screen_size[1] / 2)
+    top_left_point = (screen_size[0] / 2 - rect_size[0] / 2, 100)
 
     # create object
-    float_circle = FloatCircle(screen, (255, 0, 255), center, radius)
+    float_rect = FloatRect(screen, (255, 0, 255), top_left_point, rect_size)
 
     # draw object
-    float_circle.draw()
+    float_rect.draw()
 
     # ========== create float font ==========
 
@@ -84,7 +90,7 @@ def circle_example():
     font_surface_rect = font_surface.get_rect()
 
     # position surface rect
-    font_surface_rect.center = center
+    font_surface_rect.center = (int(top_left_point[0] + rect_size[0] / 2), int(top_left_point[1] + rect_size[1] / 2))
 
     # draw font surface
     screen.blit(font_surface, font_surface_rect)
@@ -108,15 +114,15 @@ def circle_example():
                 if event.button == LEFT_BUTTON:
 
                     # increase objects size
-                    resize_circle(screen, screen_size, float_circle, float_font, font_text, font_color, 1.1)
+                    resize_rect(screen, screen_size, float_rect, float_font, font_text, font_color, 1.1)
 
                 # verify if mouse button is the right button
                 if event.button == RIGHT_BUTTON:
 
                     # decrease objects size
-                    resize_circle(screen, screen_size, float_circle, float_font, font_text, font_color, 0.9)
+                    resize_rect(screen, screen_size, float_rect, float_font, font_text, font_color, 0.9)
 
     pygame.quit()
 
 
-circle_example()
+# rect_example()
