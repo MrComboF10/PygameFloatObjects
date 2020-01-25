@@ -77,6 +77,30 @@ class FloatRect:
                              self.__round_top_right_point], round(self.__float_width))
 
 
+class FloatCircle:
+    def __init__(self, screen, color, float_center, float_radius, width=0):
+        self.__screen = screen
+        self.__color = color
+        self.__float_center = float_center
+        self.__float_radius = float_radius
+        self.__width = width
+
+    def get_float_center(self):
+        return self.__float_center
+
+    def get_float_radius(self):
+        return self.__float_radius
+
+    def set_float_center(self, new_float_center):
+        self.__float_center = new_float_center
+
+    def set_float_radius(self, new_float_radius):
+        self.__float_radius = new_float_radius
+
+    def draw(self):
+        pygame.draw.circle(self.__screen, self.__color, self.__float_center, self.__float_radius, self.__width)
+
+
 class FloatFont:
     def __init__(self, name, size, bold=False, italic=False):
         self.__name = name

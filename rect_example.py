@@ -1,8 +1,7 @@
-import pygame
 from objects import *
 
 
-def resize_objects(screen, screen_size, float_rect, float_font, font_text, font_color, ratio):
+def resize_rect(screen, screen_size, float_rect, float_font, font_text, font_color, ratio):
     # clear screen
     screen.fill((0, 0, 0))
 
@@ -43,7 +42,7 @@ def resize_objects(screen, screen_size, float_rect, float_font, font_text, font_
     pygame.display.update()
 
 
-def example():
+def rect_example():
 
     LEFT_BUTTON = 1
     RIGHT_BUTTON = 3
@@ -115,15 +114,15 @@ def example():
                 if event.button == LEFT_BUTTON:
 
                     # increase objects size
-                    resize_objects(screen, screen_size, float_rect, float_font, font_text, font_color, 1.1)
+                    resize_rect(screen, screen_size, float_rect, float_font, font_text, font_color, 1.1)
 
                 # verify if mouse button is the right button
                 if event.button == RIGHT_BUTTON:
 
                     # decrease objects size
-                    resize_objects(screen, screen_size, float_rect, float_font, font_text, font_color, 0.9)
+                    resize_rect(screen, screen_size, float_rect, float_font, font_text, font_color, 0.9)
 
     pygame.quit()
 
 
-example()
+rect_example()
