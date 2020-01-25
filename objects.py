@@ -83,7 +83,7 @@ class FloatCircle:
         self.__color = color
         self.__float_center = float_center
         self.__float_radius = float_radius
-        self.__width = width
+        self.__float_width = width
 
     def get_float_center(self):
         return self.__float_center
@@ -91,14 +91,20 @@ class FloatCircle:
     def get_float_radius(self):
         return self.__float_radius
 
+    def get_float_width(self):
+        return self.__float_width
+
     def set_float_center(self, new_float_center):
         self.__float_center = new_float_center
 
     def set_float_radius(self, new_float_radius):
         self.__float_radius = new_float_radius
 
+    def set_float_width(self, new_float_width):
+        self.__float_width = new_float_width
+
     def draw(self):
-        pygame.draw.circle(self.__screen, self.__color, self.__float_center, self.__float_radius, self.__width)
+        pygame.draw.circle(self.__screen, self.__color, (int(self.__float_center[0]), int(self.__float_center[1])), int(self.__float_radius), int(self.__float_width))
 
 
 class FloatFont:
