@@ -15,6 +15,7 @@ py -m twine upload dist/*
 
 ### Release new version to PyPI
 
+Update version number in setup.py
 ```
 py setup.py sdist
 py -m twine upload --skip-existing dist/*
