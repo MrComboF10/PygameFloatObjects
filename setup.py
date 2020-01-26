@@ -1,5 +1,8 @@
 from distutils.core import setup
 
+with open('README.md', "r") as readme:
+    long_description = readme.read()
+
 with open('requirements.txt') as requirements:
     required = requirements.read().splitlines()
 
@@ -9,13 +12,14 @@ setup(
   version='0.0.1',
   license='MIT',
   description='Improved Pygame objects to store float attributes',
+  long_description=long_description,
   author='Pedro Azevedo',
   author_email='p.costa.azevedo@gmail.com',
   url='https://github.com/MrComboF10/PygameFloatObjects',
   install_requires=required,
   classifiers=[
     'Development Status :: 4 - Beta',
-    'Operating System :: OS Independent'
+    'Operating System :: OS Independent',
     'Intended Audience :: Developers',
     'Topic :: Software Development :: Libraries :: pygame',
     'License :: OSI Approved :: MIT License',
