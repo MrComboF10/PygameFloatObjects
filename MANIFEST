@@ -5,3 +5,7 @@ PygameFloatObjects\objects.py
 PygameFloatObjects\examples\__init__.py
 PygameFloatObjects\examples\circle_example.py
 PygameFloatObjects\examples\rect_example.py
+
+include requirements.txt
+include README.md
+include LICENSE
