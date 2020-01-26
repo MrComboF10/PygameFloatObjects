@@ -6,6 +6,12 @@ This module helps pygame developers to create objects like rect, circle and font
 
 ## Commands
 
+### Install
+
+```
+py -m pip install PygameFloatObjects
+```
+
 ### Upload to PyPI
 
 ```
