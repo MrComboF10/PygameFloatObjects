@@ -8,7 +8,7 @@ This module helps pygame developers to create objects like rect, circle and font
 
 ### Upload to PyPI
 
-'''
+```
 py setup.py sdist
 py -m twine upload dist/*
-'''
+```
