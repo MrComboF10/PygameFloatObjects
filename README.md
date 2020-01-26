@@ -12,3 +12,10 @@ This module helps pygame developers to create objects like rect, circle and font
 py setup.py sdist
 py -m twine upload dist/*
 ```
+
+### Release new version to PyPI
+
+```
+py setup.py sdist
+py -m twine upload --skip-existing dist/*
+```
