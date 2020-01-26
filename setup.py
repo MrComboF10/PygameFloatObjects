@@ -8,7 +8,7 @@ with open('requirements.txt') as requirements:
 
 setuptools.setup(
   name='PygameFloatObjects',
-  version='0.0.3',
+  version='0.0.4',
   license='MIT',
   description='Improved Pygame objects to store float attributes',
   long_description=long_description,
